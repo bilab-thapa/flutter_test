@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:simple_interest/widget/decoration.dart';
+import 'package:simple_interest/widget/text_field.dart';
 
 class SignIn extends StatelessWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -37,24 +38,11 @@ class SignIn extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 30),
                 child: Column(
                   children: [
-                    TextField(
-                      onChanged: null,
-                      keyboardType: TextInputType.number,
-                      decoration: borderDecoration.copyWith(
-                        hintText: 'Enter Email',
-                        labelText: 'Email',
-                      ),
+                    const TextFieldContainer(
+                      child: TextField(),
                     ),
                     const Padding(
                       padding: EdgeInsets.only(top: 40),
-                    ),
-                    TextField(
-                      onChanged: null,
-                      keyboardType: TextInputType.number,
-                      decoration: borderDecoration.copyWith(
-                        hintText: 'Enter Password',
-                        labelText: 'Password',
-                      ),
                     ),
                     const SizedBox(height: 40),
                     SizedBox(

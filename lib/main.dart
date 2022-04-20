@@ -24,10 +24,11 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.teal,
       appBar: AppBar(
         elevation: 2,
-        backgroundColor: Colors.yellowAccent,
-        foregroundColor: Colors.black,
+        backgroundColor: Colors.indigo,
+        foregroundColor: Colors.white,
         centerTitle: true,
         title: const Text(
           'HomeScreen',
@@ -35,9 +36,14 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 10),
+        padding: const EdgeInsets.only(top: 40),
         child: Column(
           children: [
+            const Text(
+              'Working Pages',
+              style: TextStyle(fontSize: 28, color: Colors.white),
+            ),
+            const SizedBox(height: 40),
             SizedBox(
               width: double.infinity,
               height: 80,
@@ -81,7 +87,7 @@ class HomeScreen extends StatelessWidget {
               height: 80,
               width: double.infinity,
               child: ElevatedButton(
-                style: ElevatedButton.styleFrom(primary: Colors.blue),
+                style: ElevatedButton.styleFrom(primary: Colors.redAccent),
                 child: const Text(
                   'Sign In Page',
                   style: TextStyle(fontSize: 20),

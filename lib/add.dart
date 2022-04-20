@@ -76,6 +76,7 @@ class _AddTwoNumberState extends State<AddTwoNumber> {
               const SizedBox(height: 20),
               SizedBox(
                 width: double.infinity,
+                height: 50,
                 child: ElevatedButton(
                   onPressed: () {
                     if (_globalKey.currentState!.validate()) {
@@ -84,7 +85,7 @@ class _AddTwoNumberState extends State<AddTwoNumber> {
                   },
                   child: const Text(
                     'ADD',
-                    style: TextStyle(color: Colors.white54),
+                    style: TextStyle(color: Colors.white),
                   ),
                   style: ElevatedButton.styleFrom(
                     primary: Colors.green.shade400,
