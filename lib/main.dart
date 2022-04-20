@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:simple_interest/add.dart';
+import 'package:simple_interest/list.dart';
+import 'package:simple_interest/output.dart';
 import 'package:simple_interest/signin.dart';
 import 'package:simple_interest/simple_interest.dart';
 
@@ -13,6 +15,8 @@ void main() {
         '/add': (context) => const AddTwoNumber(),
         '/simple_interest': (context) => const Calculator(),
         '/signin': (context) => const SignIn(),
+        '/arithmetic': (context) => const AllArithmetic(),
+        '/output': (context) => Output(),
       },
     ),
   );
@@ -97,6 +101,26 @@ class HomeScreen extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) => const SignIn(),
+                    ),
+                  );
+                },
+              ),
+            ),
+            const SizedBox(height: 10),
+            SizedBox(
+              height: 80,
+              width: double.infinity,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(primary: Colors.deepPurple),
+                child: const Text(
+                  'Arthimetic',
+                  style: TextStyle(fontSize: 20),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const AllArithmetic(),
                     ),
                   );
                 },
