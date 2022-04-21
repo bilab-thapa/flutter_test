@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:simple_interest/add.dart';
+import 'package:simple_interest/game.dart';
 import 'package:simple_interest/list.dart';
 import 'package:simple_interest/output.dart';
 import 'package:simple_interest/signin.dart';
@@ -17,6 +18,7 @@ void main() {
         '/signin': (context) => const SignIn(),
         '/arithmetic': (context) => const AllArithmetic(),
         '/output': (context) => Output(),
+        '/game': (context) => Game(),
       },
     ),
   );
@@ -41,92 +43,94 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.only(top: 40),
-        child: Column(
-          children: [
-            const Text(
-              'Working Pages',
-              style: TextStyle(fontSize: 28, color: Colors.white),
-            ),
-            const SizedBox(height: 40),
-            SizedBox(
-              width: double.infinity,
-              height: 80,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(primary: Colors.green),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const AddTwoNumber()),
-                  );
-                },
-                child: const Text(
-                  'Addition of two number',
-                  style: TextStyle(fontSize: 20),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const Text(
+                'Working Pages',
+                style: TextStyle(fontSize: 28, color: Colors.white),
+              ),
+              const SizedBox(height: 40),
+              SizedBox(
+                width: double.infinity,
+                height: 80,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(primary: Colors.green),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const AddTwoNumber()),
+                    );
+                  },
+                  child: const Text(
+                    'Addition of two number',
+                    style: TextStyle(fontSize: 20),
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(height: 10),
-            SizedBox(
-              height: 80,
-              width: double.infinity,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(primary: Colors.deepOrange),
-                child: const Text(
-                  'Simple Interest Calculator',
-                  style: TextStyle(fontSize: 20),
+              const SizedBox(height: 10),
+              SizedBox(
+                height: 80,
+                width: double.infinity,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(primary: Colors.deepOrange),
+                  child: const Text(
+                    'Simple Interest Calculator',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Calculator(),
+                      ),
+                    );
+                  },
                 ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Calculator(),
-                    ),
-                  );
-                },
               ),
-            ),
-            const SizedBox(height: 10),
-            SizedBox(
-              height: 80,
-              width: double.infinity,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(primary: Colors.redAccent),
-                child: const Text(
-                  'Sign In Page',
-                  style: TextStyle(fontSize: 20),
+              const SizedBox(height: 10),
+              SizedBox(
+                height: 80,
+                width: double.infinity,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(primary: Colors.deepPurple),
+                  child: const Text(
+                    'Arthimetic',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const AllArithmetic(),
+                      ),
+                    );
+                  },
                 ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const SignIn(),
-                    ),
-                  );
-                },
               ),
-            ),
-            const SizedBox(height: 10),
-            SizedBox(
-              height: 80,
-              width: double.infinity,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(primary: Colors.deepPurple),
-                child: const Text(
-                  'Arthimetic',
-                  style: TextStyle(fontSize: 20),
+              const SizedBox(height: 10),
+              SizedBox(
+                height: 80,
+                width: double.infinity,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(primary: Colors.lightGreen),
+                  child: const Text(
+                    'Game',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Game(),
+                      ),
+                    );
+                  },
                 ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const AllArithmetic(),
-                    ),
-                  );
-                },
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
