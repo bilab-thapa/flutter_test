@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:simple_interest/widget/decoration.dart';
 import 'package:simple_interest/widget/text_field.dart';
 
 class SignIn extends StatelessWidget {
