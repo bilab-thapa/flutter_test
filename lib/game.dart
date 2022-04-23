@@ -14,9 +14,97 @@ class _GameState extends State<Game> {
   int userScore = 0;
   int compScore = 0;
   String message = '';
+  bool flag = true;
+
   //var random = Random();
   String randomNumber1 = Random().nextInt(100).toString();
   String randomNumber2 = Random().nextInt(100).toString();
+
+  _checkfirst() {
+    if (int.parse(randomNumber1) > int.parse(randomNumber2)) {
+      userScore++;
+      if (userScore > 4) {
+        setState(() {
+          flag = false;
+          message = 'You Win';
+          colorState = Colors.green;
+        });
+      } else if (compScore > 4) {
+        setState(() {
+          flag = false;
+          message = 'You Lose';
+          colorState = Colors.red;
+        });
+      }
+      ;
+    } else {
+      compScore++;
+      if (userScore > 4) {
+        setState(() {
+          flag = false;
+          message = 'You Win';
+          colorState = Colors.green;
+        });
+      } else if (compScore > 4) {
+        setState(() {
+          flag = false;
+          message = 'You Lose';
+          colorState = Colors.red;
+        });
+      }
+    }
+    setState(() {
+      randomNumber1 = Random().nextInt(100).toString();
+      randomNumber2 = Random().nextInt(100).toString();
+      if (int.parse(randomNumber1) == int.parse(randomNumber2)) {
+        randomNumber1 = Random().nextInt(100).toString();
+        randomNumber2 = Random().nextInt(100).toString();
+      }
+    });
+  }
+
+  _checkSecond() {
+    if (int.parse(randomNumber1) < int.parse(randomNumber2)) {
+      userScore++;
+      if (userScore > 4) {
+        setState(() {
+          flag = false;
+          message = 'You Win';
+          colorState = Colors.green;
+        });
+      } else if (compScore > 4) {
+        setState(() {
+          flag = false;
+          message = 'You Lose';
+          colorState = Colors.red;
+        });
+      }
+      ;
+    } else {
+      compScore++;
+      if (userScore > 4) {
+        setState(() {
+          flag = false;
+          message = 'You Win';
+          colorState = Colors.green;
+        });
+      } else if (compScore > 4) {
+        setState(() {
+          flag = false;
+          message = 'You Lose';
+          colorState = Colors.red;
+        });
+      }
+    }
+    setState(() {
+      randomNumber2 = Random().nextInt(100).toString();
+      randomNumber1 = Random().nextInt(100).toString();
+      if (int.parse(randomNumber1) == int.parse(randomNumber2)) {
+        randomNumber1 = Random().nextInt(100).toString();
+        randomNumber2 = Random().nextInt(100).toString();
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,44 +142,7 @@ class _GameState extends State<Game> {
                   randomNumber1,
                   style: TextStyle(fontSize: 24),
                 ),
-                onPressed: () {
-                  if (int.parse(randomNumber1) > int.parse(randomNumber2)) {
-                    userScore++;
-                    if (userScore == 10) {
-                      setState(() {
-                        message = 'You Win';
-                        colorState = Colors.green;
-                      });
-                    } else if (compScore == 10) {
-                      setState(() {
-                        message = 'You Lose';
-                        colorState = Colors.red;
-                      });
-                    }
-                    ;
-                  } else {
-                    compScore++;
-                    if (userScore == 10) {
-                      setState(() {
-                        message = 'You Win';
-                        colorState = Colors.green;
-                      });
-                    } else if (compScore == 10) {
-                      setState(() {
-                        message = 'You Lose';
-                        colorState = Colors.red;
-                      });
-                    }
-                  }
-                  setState(() {
-                    randomNumber1 = Random().nextInt(100).toString();
-                    randomNumber2 = Random().nextInt(100).toString();
-                    if (int.parse(randomNumber1) == int.parse(randomNumber2)) {
-                      randomNumber1 = Random().nextInt(100).toString();
-                      randomNumber2 = Random().nextInt(100).toString();
-                    }
-                  });
-                },
+                onPressed: flag ? () => _checkfirst() : null,
               ),
             ),
             const SizedBox(height: 20),
@@ -104,44 +155,7 @@ class _GameState extends State<Game> {
                   randomNumber2,
                   style: TextStyle(fontSize: 24),
                 ),
-                onPressed: () {
-                  if (int.parse(randomNumber1) < int.parse(randomNumber2)) {
-                    userScore++;
-                    if (userScore == 10) {
-                      setState(() {
-                        message = 'You Win';
-                        colorState = Colors.green;
-                      });
-                    } else if (compScore == 10) {
-                      setState(() {
-                        message = 'You Lose';
-                        colorState = Colors.red;
-                      });
-                    }
-                    ;
-                  } else {
-                    compScore++;
-                    if (userScore == 10) {
-                      setState(() {
-                        message = 'You Win';
-                        colorState = Colors.green;
-                      });
-                    } else if (compScore == 10) {
-                      setState(() {
-                        message = 'You Lose';
-                        colorState = Colors.red;
-                      });
-                    }
-                  }
-                  setState(() {
-                    randomNumber2 = Random().nextInt(100).toString();
-                    randomNumber1 = Random().nextInt(100).toString();
-                    if (int.parse(randomNumber1) == int.parse(randomNumber2)) {
-                      randomNumber1 = Random().nextInt(100).toString();
-                      randomNumber2 = Random().nextInt(100).toString();
-                    }
-                  });
-                },
+                onPressed: flag ? () => _checkSecond() : null,
               ),
             ),
             const SizedBox(height: 20),
